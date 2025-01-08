@@ -62,65 +62,68 @@ const TShirtDesign = () => {
     };
 
   return (
-    <div className="p-4 bg-gray-900 text-white min-h-screen flex justify-center items-center">
-      {/* Left Section: T-Shirt Preview */}
-      <div>
-        <div
-          className="relative w-80 h-100 bg-gray-700 border border-gray-600 rounded-lg overflow-hidden"
-          ref={tShirtRef}
-          onMouseMove={handleMouseMove}
-          onMouseUp={handleMouseUp}
-          onMouseLeave={handleMouseUp}
-        >
-          <img
-            src={TshirtImage}
-            alt="T-Shirt"
-            className="w-full h-full object-cover"
-          />
-
-          {logo && (
+    <div className="p-4 bg-gray-900 text-white h-auto">
+      <h2 className="text-2xl font-semibold mb-16">T-Shirt Design</h2>
+      <div className=" flex justify-center items-center">
+        {/* Left Section: T-Shirt Preview */}
+        <div>
+          <div
+            className="relative w-80 h-100 bg-gray-700 border border-gray-600 rounded-lg overflow-hidden"
+            ref={tShirtRef}
+            onMouseMove={handleMouseMove}
+            onMouseUp={handleMouseUp}
+            onMouseLeave={handleMouseUp}
+          >
             <img
-              src={logo}
-              alt="Logo"
-              className="absolute cursor-move"
-              style={{
-                top: `${position.y}px`,
-                left: `${position.x}px`,
-                width: `${size}px`, // Use the size state here
-                height: `${size}px`, // Use the size state here
-              }}
-              onMouseDown={handleMouseDown}
+              src={TshirtImage}
+              alt="T-Shirt"
+              className="w-full h-full object-cover"
             />
-          )}
-        </div>
-        <div className="flex justify-between items-center mt-4">
-          <label className="text-sm">Resize Logo:</label>
-          <input
-            type="range"
-            min="20"
-            max="200"
-            value={size}
-            onChange={handleLogoResize} // Use handleLogoResize here
-            className="ml-2"
-          />
-        </div>
-      </div>
 
-      {/* Right Section: Upload & Submit */}
-      <div className="ml-8">
-        <div className="mb-4">
-          <input
-            type="file"
-            onChange={handleLogoUpload}
-            className="border border-gray-600 p-2 rounded-lg bg-gray-800 text-white w-full"
-          />
+            {logo && (
+              <img
+                src={logo}
+                alt="Logo"
+                className="absolute cursor-move"
+                style={{
+                  top: `${position.y}px`,
+                  left: `${position.x}px`,
+                  width: `${size}px`, // Use the size state here
+                  height: `${size}px`, // Use the size state here
+                }}
+                onMouseDown={handleMouseDown}
+              />
+            )}
+          </div>
+          <div className="flex justify-between items-center mt-4">
+            <label className="text-sm">Resize Logo:</label>
+            <input
+              type="range"
+              min="20"
+              max="200"
+              value={size}
+              onChange={handleLogoResize} // Use handleLogoResize here
+              className="ml-2"
+            />
+          </div>
         </div>
-        <button
-          onClick={handleSaveImage}
-          className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
-        >
-          Save Final Image
-        </button>
+
+        {/* Right Section: Upload & Submit */}
+        <div className="ml-8">
+          <div className="mb-4">
+            <input
+              type="file"
+              onChange={handleLogoUpload}
+              className="border border-gray-600 p-2 rounded-lg bg-gray-800 text-white w-full"
+            />
+          </div>
+          <button
+            onClick={handleSaveImage}
+            className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
+          >
+            Save Final Image
+          </button>
+        </div>
       </div>
     </div>
   );
